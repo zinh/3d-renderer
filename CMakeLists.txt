@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
-project(renderer)
+project(renderer C)
 add_subdirectory(vendor/SDL2-2.30.9)
 add_executable(renderer src/main.c)
+set_property(TARGET renderer PROPERTY C_STANDARD 99)
 target_link_libraries(renderer PUBLIC SDL2)

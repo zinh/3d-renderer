@@ -5,14 +5,14 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int window_width = 800;
-int window_height = 600;
+int window_width;
+int window_height;
 
-SDL_Window *window = NULL;
-SDL_Renderer *renderer = NULL;
+SDL_Window *window;
+SDL_Renderer *renderer;
 
 uint32_t *color_buffer;
-SDL_Texture *color_buffer_texture = NULL;
+SDL_Texture *color_buffer_texture;
 
 bool initialize_window(void);
 void destroy_window(void);

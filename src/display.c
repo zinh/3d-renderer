@@ -1,5 +1,14 @@
 #include "display.h"
 
+int window_width = 800;
+int window_height = 600;
+
+SDL_Window *window = NULL;
+SDL_Renderer *renderer = NULL;
+
+uint32_t *color_buffer = NULL;
+SDL_Texture *color_buffer_texture = NULL;
+
 bool initialize_window(void) {
   if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
     fprintf(stderr, "Error initializing window.\n");
@@ -69,4 +78,9 @@ void draw_rect(int x, int y, int width, int height, uint32_t color) {
       color_buffer[window_width * y_pos + x_pos] = color;
     }
   }
+}
+
+void draw_pixel(int x, int y, uint32_t color) {
+  if (x < window_width && y < window_height)
+    color_buffer[window_width * y + x] = color;
 }

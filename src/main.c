@@ -1,4 +1,5 @@
 #include "display.h"
+
 bool is_running = false;
 
 void setup(void) {
@@ -14,6 +15,7 @@ void render(void) {
 
   // draw_grid();
   draw_rect(10, 10, 200, 300, 0xFF663399);
+  draw_pixel(5, 5, 0xFF00FF00);
   render_color_buffer();
   clear_color_buffer(0xFFFFFF00);
 
@@ -38,9 +40,6 @@ void process_input(void) {
 void update(void) {}
 
 int main(void) {
-  window_width = 800;
-  window_height = 600;
-
   is_running = initialize_window();
 
   setup();
